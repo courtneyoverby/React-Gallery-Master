@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./App.css";
+import GalleryList from "../GalleryList/GalleryList.js";
 
 // Calling super, so we can pass the props parameter to the parent element (constructor).
 
@@ -40,8 +42,8 @@ class App extends Component {
         this.getGallery();
       })
       .catch((failLike) => {
-        console.error("There was an error liking image: ", failLike);
-      })
+        console.error("Error liking the image: ", failLike);
+      });
   };
 
   // Render is taking our react components and transforming them into DOM nodes.
@@ -61,12 +63,10 @@ class App extends Component {
           of time. Dali sought to challenge convention through his surrealist
           art.
         </p>
-        <img src="images/SD1.jpg" alt="" />
-        <img src="images/SD2.jpg" alt="" />
-        <img src="images/SD3.jpg" alt="" />
-        <img src="images/SD4.jpg" alt="" />
-        <img src="images/SD5.jpg" alt="" />
-        <img src="images/SD6.jpg" alt="" />
+        <GalleryList
+          collection={this.state.galleryCollection}
+          likeImage={this.onLikeImage}
+        />
       </div>
     );
   }
