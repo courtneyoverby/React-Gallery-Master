@@ -10,11 +10,18 @@ class GalleryItem extends Component {
         };
     }
 
-    clickLike = (event) => {
+    onClickLike = (event) => {
         // stopPropagation prevents parent event handlers from being started.
         event.stopPropagation();
         this.props.likeImage(this.props.ID);
         console.log("Clicked");
+    };
+
+    onClick = (event) => (event) => {
+        const newShowDescState =
+        this.state.showDesc ? false : true;
+            this.setState({ showDesc:
+        newShowDescState });
     };
 
     render() {
