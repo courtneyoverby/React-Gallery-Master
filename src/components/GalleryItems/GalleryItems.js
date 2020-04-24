@@ -13,13 +13,14 @@ class GalleryItems extends Component {
   onClickLike = (event) => {
     // stopPropagation prevents parent event handlers from being started.
     event.stopPropagation();
-    this.props.likeImage(this.props.ID);
-    console.log("Clicked");
+    this.props.likeImage(this.props.id);
   };
 
   onClick = (event) => (event) => {
     const newShowDescState = this.state.showDesc ? false : true;
     this.setState({ showDesc: newShowDescState });
+
+    console.log("onClick Desc Swap: ", newShowDescState);
   };
 
   render() {
@@ -44,7 +45,7 @@ class GalleryItems extends Component {
     }
 
     return (
-      <div className="galleryImage" id={id} onClick={this.onClick}>
+      <div className="galleryImage" id={id} onClick={this.onClick()}>
         {imageBlock}
         <button className="galleryImageBtn" onClick={this.onClickLike}>
           Love this!

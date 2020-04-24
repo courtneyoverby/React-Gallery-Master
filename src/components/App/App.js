@@ -34,7 +34,7 @@ class App extends Component {
     });
   }
 
-  likeImage = (imageID) => {
+  onLikeImage = (imageID) => {
     axios
       .put(`/gallery/like/${imageID}`)
       .then((passLike) => {
