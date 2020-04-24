@@ -28,7 +28,7 @@ class App extends Component {
   getGallery() {
     axios("/gallery").then((sendGallery) => {
       this.setState({
-        galleryCollection: sendGallery.date,
+        galleryCollection: sendGallery.data,
       });
       return sendGallery;
     });
